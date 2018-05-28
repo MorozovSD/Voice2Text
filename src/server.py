@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import telebot
+from .speech_parser import speech_to_films
 
 token=%TG_TOKEN%
 bot = telebot.TeleBot(token)
@@ -12,7 +13,8 @@ def repeat_all_messages(message):
 @bot.message_handler(content_types=['voice'])
 def handle_docs_audio(message):
     print(message.chat.id, ': voice message')
-    bot.send_message(message.chat.id, 'Сейчас это слишком сложно для меня')
+    file_info = bot.get_file(message.voice.file_id)
+    bot.send_message(message.chat.id, 'Держи:\n' + speech_to_films(file_info, token))
 
 if __name__ == '__main__':
     print("START")
