@@ -1,0 +1,6 @@
+pytelegrambotapi
+beautifulsoup4
+SpeechRecognition
+googletrans
+soundfile
+SPARQLWrapper
