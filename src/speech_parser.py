@@ -1,8 +1,8 @@
 import requests
 import re
+import subprocess
 
 import speech_recognition as sr
-import soundfile as sf
 from googletrans import Translator
 
 
@@ -70,32 +70,39 @@ def translate_to_english(word):
     translator = Translator()
     return translator.translate(word, src='ru', dest='en').text
 
-def speech_to_films(file_info, token):
-    voice_file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(token, file_info.file_path))
-    data, samplerate = sf.read(voice_file)
-    sf.write('voice.wav', data, samplerate)
+def get_filter(chat_id, file_info, token):
+    input_file = str(chat_id) + '.ogg'
+    output_file = str(chat_id) + '.wav'
+
+    resp = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(token, file_info.file_path))
+    with open(input_file, 'wb') as f:
+        f.write(resp.content)
+
+    process = subprocess.run(['avconv', '-y', '-i', input_file, '-vn', '-f', 'wav', output_file])
+    if process.returncode != 0:
+        print('При работе с аудиофайлом возникла ошибка')
+        return {'result': 'error', 'message': 'При работе с аудиофайлом возникла ошибка'}
+
     r = sr.Recognizer()
-
-    with sr.AudioFile('voice.wav') as source:
+    with sr.AudioFile(output_file) as source:
        audio = r.record(source)
-    #with sr.Microphone() as source:
-        #print("Скажите что-нибудь")
-        #audio = r.listen(source)
 
-    result = 'жанр комедия, год 1984, страна Россия, рейтинг 8, продюсер Харви вайнштейн'
+    # result = 'жанр комедия, год 1984, страна Россия, рейтинг 8, продюсер Харви вайнштейн'
     try:
         result = r.recognize_google(audio, language="ru-RU")
         russianFilter = SearchFilter(string_filter=result)
         englishFilter = translate_filter_to_english(russianFilter)
         print(result)
-        print(englishFilter.year)
-        print(englishFilter.genre)
-        print(englishFilter.country)
-        print(englishFilter.rate)
-        print(englishFilter.name)
-        print(englishFilter.producer)
-        return result + '\n' + str(englishFilter)
+        print('year:', englishFilter.year)
+        print('genre:', englishFilter.genre)
+        print('country:', englishFilter.country)
+        print('rate:', englishFilter.rate)
+        print('name:', englishFilter.name)
+        print('producer:', englishFilter.producer)
+        return {'result': 'ok', 'filter': englishFilter}
     except sr.UnknownValueError:
-        return "Робот не расслышал фразу"
+        print('Робот не расслышал фразу')
+        return {'result': 'error', 'message': 'Робот не расслышал фразу'}
     except sr.RequestError as e:
-        return "Ошибка сервиса; {0}".format(e)
+        print("Ошибка сервиса; {0}".format(e))
+        return {'result': 'error', 'message': 'Ошибка сервиса; {0}'.format(e)}

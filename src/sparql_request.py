@@ -1,7 +1,7 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 
-def sparql_request(search_filter):
+def get_ids(search_filter):
     prefix = """prefix dbr: <http://dbpedia.org/resource/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix dbpedia-owl: <http://dbpedia.org/ontology/>
@@ -49,13 +49,13 @@ prefix movie: <http://data.linkedmdb.org/resource/movie/>
         sparql_name = 'FILTER regex(str(?label), "({})", "i")\n'.format(search_filter.name.replace(' ', '.'))
 
     request_end = '}'
-    qeuery = prefix + \
+    query = prefix + \
              core_select + \
              sparql_genre + sparql_year + sparql_country + sparql_producer + sparql_name \
              + request_end
-    #print(qeuery)
+    #print(query)
     sparql = SPARQLWrapper("http://dbpedia.org/sparql")
-    sparql.setQuery(qeuery)
+    sparql.setQuery(query)
 
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
