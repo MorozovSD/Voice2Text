@@ -21,10 +21,20 @@ def handle_docs_audio(message):
     if filter['result'] == 'error':
         bot.send_message(message.chat.id, filter['message'])
     else:
-        bot.send_message(message.chat.id, 'Вроде, что-то получилось\n' + str(filter['filter']))
+        bot.send_message(message.chat.id, 'Идет поиск по вашему запросу')
         ids, b, c = get_ids(filter['filter'])
-        print(ids)
-        print(get_films(ids))
+        print('ids:', ids)
+        films = get_films(ids)
+        print(films)
+        result = ''
+        for i in range(len(films)):
+            result += str(i+1) + ') ' + films[i]['title'] + '\n'
+            if films[i].get('description'):
+                result += films[i].get('description') + '\n'
+            result += '\n'
+        if not result:
+            result = 'По вашему запросу ничего не найдено'
+        bot.send_message(message.chat.id, result)
 
 
 if __name__ == '__main__':

@@ -71,6 +71,7 @@ def translate_to_english(word):
     return translator.translate(word, src='ru', dest='en').text
 
 def get_filter(chat_id, file_info, token):
+    print('START speech_request')
     input_file = str(chat_id) + '.ogg'
     output_file = str(chat_id) + '.wav'
 

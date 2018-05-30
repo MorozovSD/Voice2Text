@@ -2,6 +2,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 
 
 def get_ids(search_filter):
+    print('START sparql_request')
     prefix = """prefix dbr: <http://dbpedia.org/resource/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix dbpedia-owl: <http://dbpedia.org/ontology/>

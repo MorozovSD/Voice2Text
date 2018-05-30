@@ -9,7 +9,12 @@ def get_text(block):
     return block.text.strip() if block else None
 
 def get_films(ids, limit=5, rating=None):
+    print('START imdb_request')
     films = []
+
+    if not ids:
+        return films
+
     if len(ids) > limit:
         random.shuffle(ids)
 
