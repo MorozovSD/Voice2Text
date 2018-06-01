@@ -1,0 +1,671 @@
+coverage:
+  all_nodes: 0
+  covered_nodes: 0
+mutation_score: 42.30769230769231
+mutations:
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 54
+    operator: AOR
+  number: 1
+  status: incompetent
+  tests_run: 4
+  time: 0.006000041961669922
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 55
+    operator: AOR
+  number: 2
+  status: incompetent
+  tests_run: 4
+  time: 0.005000114440917969
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 3
+  status: incompetent
+  tests_run: 4
+  time: 0.005000591278076172
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 4
+  status: incompetent
+  tests_run: 4
+  time: 0.00500035285949707
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 5
+  status: incompetent
+  tests_run: 4
+  time: 0.007000446319580078
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 6
+  status: incompetent
+  tests_run: 4
+  time: 0.00500035285949707
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 57
+    operator: AOR
+  number: 7
+  status: incompetent
+  tests_run: 4
+  time: 0.006000518798828125
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 24
+    operator: COI
+  number: 8
+  status: incompetent
+  tests_run: 2
+  time: 2.0871193408966064
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 33
+    operator: COI
+  number: 9
+  status: incompetent
+  tests_run: 4
+  time: 0.006000518798828125
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 107, in test_coutry\n    self.assertTrue('country' in result)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_coutry (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 38
+    operator: COI
+  number: 10
+  status: killed
+  tests_run: 1
+  time: 2.4831418991088867
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 45
+    operator: COI
+  number: 11
+  status: incompetent
+  tests_run: 4
+  time: 0.00500035285949707
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 50
+    operator: COI
+  number: 12
+  status: incompetent
+  tests_run: 4
+  time: 0.00500035285949707
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 5
+    operator: CRP
+  number: 13
+  status: survived
+  tests_run: 9
+  time: 7.4684271812438965
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 5
+    operator: CRP
+  number: 14
+  status: survived
+  tests_run: 9
+  time: 7.299417734146118
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 10
+    operator: CRP
+  number: 15
+  status: incompetent
+  tests_run: 4
+  time: 0.3520200252532959
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 10
+    operator: CRP
+  number: 16
+  status: incompetent
+  tests_run: 4
+  time: 0.9320535659790039
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 20
+    operator: CRP
+  number: 17
+  status: incompetent
+  tests_run: 4
+  time: 0.47502708435058594
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 20
+    operator: CRP
+  number: 18
+  status: incompetent
+  tests_run: 4
+  time: 0.38302183151245117
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 22
+    operator: CRP
+  number: 19
+  status: incompetent
+  tests_run: 4
+  time: 0.3840219974517822
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 20
+  status: incompetent
+  tests_run: 9
+  time: 7.322418928146362
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 68, in test_genre\n    self.assertTrue('genrelabel' in result)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_genre (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 21
+  status: killed
+  tests_run: 2
+  time: 2.0961201190948486
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 22
+  status: survived
+  tests_run: 9
+  time: 7.022401571273804
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 62, in test_genre\n    self.assertTrue(len(_return) != 0)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_genre (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 23
+  status: killed
+  tests_run: 2
+  time: 0.6530373096466064
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 24
+  status: survived
+  tests_run: 9
+  time: 7.139408349990845
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 30
+    operator: CRP
+  number: 25
+  status: survived
+  tests_run: 9
+  time: 10.173582077026367
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 32
+    operator: CRP
+  number: 26
+  status: incompetent
+  tests_run: 4
+  time: 0.3350188732147217
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 35
+    operator: CRP
+  number: 27
+  status: incompetent
+  tests_run: 9
+  time: 6.664381265640259
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 84, in test_year\n    self.assertTrue('releaseDate' in results[\"results\"\
+    ][\"bindings\"][0])\nAssertionError: False is not true\n"
+  killer: test_year (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 35
+    operator: CRP
+  number: 28
+  status: killed
+  tests_run: 9
+  time: 8.425482034683228
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 37
+    operator: CRP
+  number: 29
+  status: incompetent
+  tests_run: 4
+  time: 0.7420423030853271
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 30
+  status: incompetent
+  tests_run: 9
+  time: 9.481542348861694
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 107, in test_coutry\n    self.assertTrue('country' in result)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_coutry (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 31
+  status: killed
+  tests_run: 1
+  time: 2.1821248531341553
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 32
+  status: survived
+  tests_run: 9
+  time: 6.3963658809661865
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 33
+  status: survived
+  tests_run: 9
+  time: 6.545374393463135
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 34
+  status: survived
+  tests_run: 9
+  time: 6.840391159057617
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 35
+  status: survived
+  tests_run: 9
+  time: 7.636436939239502
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 44
+    operator: CRP
+  number: 36
+  status: incompetent
+  tests_run: 4
+  time: 0.35102033615112305
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 37
+  status: incompetent
+  tests_run: 9
+  time: 7.996457576751709
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 151, in test_producer\n    self.assertTrue('producer' in result)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_producer (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 38
+  status: killed
+  tests_run: 8
+  time: 10.239585399627686
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 39
+  status: survived
+  tests_run: 9
+  time: 8.865506887435913
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 157, in test_producer\n    self.assertTrue(len(_return) != 0)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_producer (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 40
+  status: killed
+  tests_run: 8
+  time: 7.56043267250061
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 41
+  status: survived
+  tests_run: 9
+  time: 7.794445753097534
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 47
+    operator: CRP
+  number: 42
+  status: survived
+  tests_run: 9
+  time: 7.873450040817261
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 49
+    operator: CRP
+  number: 43
+  status: incompetent
+  tests_run: 4
+  time: 0.356020450592041
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 44
+  status: incompetent
+  tests_run: 9
+  time: 10.166581630706787
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 131, in test_name\n    self.assertRegex(result['label']['value'].lower(),\
+    \ 'love you', )\nAssertionError: Regex didn't match: 'love you' not found in 'crossfire\
+    \ (film)'\n"
+  killer: test_name (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 45
+  status: killed
+  tests_run: 7
+  time: 9.067518472671509
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 46
+  status: survived
+  tests_run: 9
+  time: 7.86745023727417
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 135, in test_name\n    self.assertTrue(len(_return) != 0)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_name (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 47
+  status: killed
+  tests_run: 7
+  time: 8.505486488342285
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 135, in test_name\n    self.assertTrue(len(_return) != 0)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_name (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 48
+  status: killed
+  tests_run: 7
+  time: 7.009400844573975
+- exception_traceback: "Traceback (most recent call last):\n  File \".\\test\\test_sparql_request.py\"\
+    , line 135, in test_name\n    self.assertTrue(len(_return) != 0)\nAssertionError:\
+    \ False is not true\n"
+  killer: test_name (test.test_sparql_request.TestGetIds)
+  module: src.sparql_request
+  mutations:
+  - lineno: 51
+    operator: CRP
+  number: 49
+  status: killed
+  tests_run: 7
+  time: 7.025401830673218
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 53
+    operator: CRP
+  number: 50
+  status: incompetent
+  tests_run: 4
+  time: 0.38802242279052734
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 53
+    operator: CRP
+  number: 51
+  status: incompetent
+  tests_run: 4
+  time: 0.3540201187133789
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 59
+    operator: CRP
+  number: 52
+  status: incompetent
+  tests_run: 4
+  time: 0.019001007080078125
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 59
+    operator: CRP
+  number: 53
+  status: incompetent
+  tests_run: 4
+  time: 0.012000799179077148
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 65
+    operator: CRP
+  number: 54
+  status: incompetent
+  tests_run: 4
+  time: 3.812218189239502
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 65
+    operator: CRP
+  number: 55
+  status: incompetent
+  tests_run: 4
+  time: 3.9142239093780518
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 65
+    operator: CRP
+  number: 56
+  status: incompetent
+  tests_run: 4
+  time: 4.784273624420166
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 65
+    operator: CRP
+  number: 57
+  status: incompetent
+  tests_run: 4
+  time: 3.827219009399414
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 66
+    operator: CRP
+  number: 58
+  status: incompetent
+  tests_run: 4
+  time: 5.5623180866241455
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 66
+    operator: CRP
+  number: 59
+  status: incompetent
+  tests_run: 4
+  time: 5.6773247718811035
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 66
+    operator: CRP
+  number: 60
+  status: incompetent
+  tests_run: 4
+  time: 3.923224449157715
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 66
+    operator: CRP
+  number: 61
+  status: incompetent
+  tests_run: 4
+  time: 4.067232608795166
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 68
+    operator: EHD
+  number: 62
+  status: survived
+  tests_run: 9
+  time: 9.989571332931519
+- exception_traceback: null
+  killer: null
+  module: src.sparql_request
+  mutations:
+  - lineno: 68
+    operator: EXS
+  number: 63
+  status: survived
+  tests_run: 9
+  time: 8.470484733581543
+number_of_tests: 9
+targets:
+- src.sparql_request
+tests:
+- name: test.test_sparql_request
+  target: null
+  time: 10.176582336425781
+time_stats:
+  create_mutant_module: 11.127633333206177
+  create_target_ast: 0.026001691818237305
+  mutate_module: 282.40215253829956
+  run_tests_with_mutant: 268.31534790992737
+total_time: 292.87075114250183
