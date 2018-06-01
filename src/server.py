@@ -6,11 +6,23 @@ from imdb_requests import get_films
 
 token=%TG_TOKEN%
 bot = telebot.TeleBot(token)
+usage = '''
+Этот бот поможет Вам найти фильмы по заданным параметрам.
+
+Для запроса фильмов отправьте аудисообщение, в котором назовите необходимые параметры и их значения.
+Параметры разделяйте с помощью слова 'запятая'.
+
+Пример:
+"Год 1990 запятая Рейтинг 9"
+
+Доступные параметры:
+Год, жанр, страна, рейтинг, название, продюсер
+'''
 
 @bot.message_handler(content_types=["text"])
 def repeat_all_messages(message):
-    print(message.chat.id, ': ', message.text, sep='')
-    bot.send_message(message.chat.id, 'Что значит "%s"?' % message.text)
+    print(message.chat.id, ': ', message.text)
+    bot.send_message(message.chat.id, usage)
 
 @bot.message_handler(content_types=['voice'])
 def handle_docs_audio(message):
