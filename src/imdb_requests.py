@@ -11,10 +11,8 @@ def get_text(block):
 def get_films(ids, limit=5, rating=None):
     print('START imdb_request')
     films = []
-
     if not ids:
         return films
-
     if len(ids) > limit:
         random.shuffle(ids)
 
@@ -29,8 +27,18 @@ def get_films(ids, limit=5, rating=None):
 
             title = get_text(soup.find(itemprop='name'))
 
-            div = soup.find("div", {"class": "summary_text"})
-            description = get_text(div) if not div.find('a') else None
+            description = None
+            description_div = soup.find("div", {"class": "summary_text"})
+            try:
+                if not description_div.a:
+                    description = get_text(description_div)
+                elif get_text(description_div.a) != 'Add a Plot':
+                    description_request = requests.get(url+id+'/plotsummary')
+                    if description_request.status_code == 200:
+                        description_soup = bs(description_request.text, 'html.parser')
+                        description = get_text(description_soup.find(id='plot-summaries-content').find('p'))
+            except:
+                print('uuups with description')
 
             poster = soup.find("div", {"class": "poster"})
             poster = poster.img.get('src') if poster and poster.img else None
@@ -40,7 +48,8 @@ def get_films(ids, limit=5, rating=None):
                 'title': title,
                 'description': description,
                 'poster': poster,
-                'rating': rating_value
+                'rating': rating_value,
+                'url': url+id
             })
 
             limit -= 1
