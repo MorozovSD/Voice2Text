@@ -20,47 +20,51 @@ prefix movie: <http://data.linkedmdb.org/resource/movie/>
 """
 
     sparql_genre = ''
-    if search_filter.genre:
-        sparql_genre = """
-    ?film <http://dbpedia.org/ontology/genre> ?genre.
-    ?genre rdfs:label ?genrelabel.
-    FILTER (langMatches(lang(?genrelabel), "en"))
-    FILTER regex(str(?genrelabel), "({})", "i")
-""".format(search_filter.genre.replace(' ', '.'))
+    try:
+        if search_filter.genre is not None:
+            sparql_genre = """
+        ?film <http://dbpedia.org/ontology/genre> ?genre.
+        ?genre rdfs:label ?genrelabel.
+        FILTER (langMatches(lang(?genrelabel), "en"))
+        FILTER regex(str(?genrelabel), "({})", "i")
+    """.format(search_filter.genre.replace(' ', '.'))
 
-    sparql_year = ''
-    if search_filter.year:
-        sparql_year = """?film <http://dbpedia.org/ontology/releaseDate> ?releaseDate.
-    FILTER (year(xsd:datetime(?releaseDate)) = {})""".format(int(search_filter.year))
+        sparql_year = ''
+        if search_filter.year is not None:
+            sparql_year = """?film <http://dbpedia.org/ontology/releaseDate> ?releaseDate.
+        FILTER (year(xsd:datetime(?releaseDate)) = {})""".format(int(search_filter.year))
 
-    sparql_country = ''
-    if search_filter.country:
-        sparql_country = """
-    ?film dbpedia-owl:country ?country
-    FILTER regex(str(?country), "({})", "i")
-    """.format(search_filter.country.replace(' ', '.'))
+        sparql_country = ''
+        if search_filter.country is not None:
+            sparql_country = """
+        ?film dbpedia-owl:country ?country
+        FILTER regex(str(?country), "({})", "i")
+        """.format(search_filter.country.replace(' ', '.'))
 
-    sparql_producer = ''
-    if search_filter.producer:
-        sparql_producer = """?film dbpedia-owl:producer ?producer
-    FILTER regex(str(?producer), "({})", "i")""".format(search_filter.producer.replace(' ', '.'))
+        sparql_producer = ''
+        if search_filter.producer is not None:
+            sparql_producer = """?film dbpedia-owl:producer ?producer
+        FILTER regex(str(?producer), "({})", "i")""".format(search_filter.producer.replace(' ', '.'))
 
-    sparql_name = ''
-    if search_filter.name:
-        sparql_name = 'FILTER regex(str(?label), "({})", "i")\n'.format(search_filter.name.replace(' ', '.'))
+        sparql_name = ''
+        if search_filter.name is not None:
+            sparql_name = 'FILTER regex(str(?label), "({})", "i")\n'.format(search_filter.name.replace(' ', '.'))
 
-    request_end = '}'
-    query = prefix + \
-             core_select + \
-             sparql_genre + sparql_year + sparql_country + sparql_producer + sparql_name \
-             + request_end
-    #print(query)
-    sparql = SPARQLWrapper("http://dbpedia.org/sparql")
-    sparql.setQuery(query)
+        request_end = '}'
+        query = prefix + \
+                core_select + \
+                sparql_genre + sparql_year + sparql_country + sparql_producer + sparql_name \
+                + request_end
+        # print(query)
+        sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+        sparql.setQuery(query)
 
-    sparql.setReturnFormat(JSON)
-    results = sparql.query().convert()
-    _return = []
-    for result in results["results"]["bindings"]:
-        _return.append(result['object']['value'])
-    return _return, search_filter.rate, results
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        _return = []
+        for result in results["results"]["bindings"]:
+            _return.append(result['object']['value'])
+        return _return, search_filter.rate, results
+    except Exception:
+        return None, None, None
+
