@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from src.imdb_requests import get_films
-from src.sparql_request import sparql_request
+from src.sparql_request import get_ids
 
 class StubSearchFilter:
     def __init__(self,
@@ -21,7 +21,7 @@ class StubSearchFilter:
 class TestGet_films(TestCase):
     def test_get_films(self):
         genreFilter = StubSearchFilter(genre='Comedy', rate=7)
-        _return, rate, results = sparql_request(genreFilter)
+        _return, rate, results = get_ids(genreFilter)
         films = get_films(_return, limit=2, rating=genreFilter.rate)
         self.assertLessEqual(len(films), 2, 'Найдено не больше чем, запрошено')
         for film in films:
