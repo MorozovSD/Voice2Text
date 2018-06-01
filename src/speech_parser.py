@@ -25,7 +25,7 @@ def translate_filter_to_english(russian_filter):
     if russian_filter.country is not None:
         english_filter.country = translate_to_english(russian_filter.country)
     if russian_filter.rate is not None:
-        english_filter.rate = translate_to_english(russian_filter.rate)
+        english_filter.rate = russian_filter.rate
     if russian_filter.name is not None:
         english_filter.name = translate_to_english(russian_filter.name)
     if russian_filter.producer is not None:

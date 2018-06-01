@@ -22,19 +22,28 @@ def handle_docs_audio(message):
         bot.send_message(message.chat.id, filter['message'])
     else:
         bot.send_message(message.chat.id, 'Идет поиск по вашему запросу')
-        ids, b, c = get_ids(filter['filter'])
-        print('ids:', ids)
-        films = get_films(ids)
-        print(films)
-        result = ''
+        ids, rate, c = get_ids(filter['filter'])
+        rate = int(rate) if rate else None
+        print('rate:', rate)
+        if not ids:
+            print('no ids')
+        else:
+            print('ids:', len(ids))
+        films = get_films(ids, rating=rate)
+        print('Фильмы:', films)
+        if not films:
+            bot.send_message(message.chat.id, 'По вашему запросу ничего не найдено')
+
         for i in range(len(films)):
-            result += str(i+1) + ') ' + films[i]['title'] + '\n'
+            result = str(i+1) + ') ' + films[i]['title'] + '\n'
             if films[i].get('description'):
                 result += films[i].get('description') + '\n'
-            result += '\n'
-        if not result:
-            result = 'По вашему запросу ничего не найдено'
-        bot.send_message(message.chat.id, result)
+            bot.send_message(message.chat.id, result) # + films[i]['url'])
+            if films[i].get('poster'):
+                try:
+                    bot.send_photo(message.chat.id, films[i].get('poster'))
+                except:
+                    pass
 
 
 if __name__ == '__main__':
